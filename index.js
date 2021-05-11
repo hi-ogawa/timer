@@ -45,10 +45,7 @@ class Timer {
   }
 
   start() {
-    this.state = "started";
-    this.reference = performance.now();
-    this.accumulated = 0;
-    this.startTick();
+    this.resume();
   }
 
   pause() {
@@ -69,6 +66,14 @@ class Timer {
     this.state = "initial";
     this.accumulated = 0;
   }
+
+  toggle() {
+    if (this.state == "started") {
+      this.pause();
+    } else {
+      this.resume();
+    }
+  }
 }
 
 const App = () => {
@@ -86,7 +91,13 @@ const App = () => {
     document.addEventListener("keyup", (e) => {
       if (e.key === "Enter") {
         timer.reset();
-        timer.start();
+        m.redraw();
+        setTitle();
+      }
+      if (e.key === " ") {
+        timer.toggle();
+        m.redraw();
+        setTitle();
       }
     });
   };
