@@ -84,7 +84,11 @@ const App = () => {
   };
 
   const setTitle = () => {
-    document.title = timer.getFormat().split(".")[0];
+    let time = timer.getFormat().split(".")[0];
+    if (time.startsWith("00:")) {
+      time = time.slice(3);
+    }
+    document.title = time;
   };
 
   const oncreate = () => {
