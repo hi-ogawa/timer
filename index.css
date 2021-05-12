@@ -1,3 +1,17 @@
+:root {
+  /* Pallete from prettier lichess https://github.com/prettierlichess/prettierlichess/blob/master/styles.css */
+  --c-text: #bababa;
+  --c-bg-1: #2b343b;
+  --c-bg-2: #3f474d;
+  --c-pallete-1: #9fc0a2;
+  --c-pallete-2: #d36d6d;
+
+  --border-radius: 6px;
+  --box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+    0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  --transition-duration: 200ms;
+}
+
 *,
 *::before,
 *::after {
@@ -13,30 +27,29 @@ body,
 #root {
   font-family: "Roboto";
   height: 100%;
-  background: #f3f4f6;
+  background: var(--c-bg-1);
+  color: var(--c-text);
 }
 
 #root {
-  padding: 20px;
-  color: #374151;
+  padding: 30px;
 }
 
 main {
   display: flex;
   flex-direction: column;
-  background: #fff;
-  width: 200px;
-  height: 80px;
-  border-radius: 6px;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2),
-    0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  background: var(--c-bg-2);
+  width: 250px;
+  height: 120px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
 }
 
 .time {
   flex: 0 0 auto;
   height: 68%;
-  font-size: 36px;
-  font-weight: lighter;
+
+  font-size: 44px;
 
   display: flex;
   align-items: center;
@@ -53,32 +66,37 @@ main {
   flex: 1 0 auto;
   width: 50%;
 
-  color: #f3f4f6;
+  color: var(--c-bg-1);
+  font-size: 18px;
   text-transform: uppercase;
-  font-size: 15px;
   cursor: pointer;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  transition: background 100ms;
+  transition-property: color, background;
+  transition-duration: var(--transition-duration);
 }
 
 .button:first-child {
-  background: #2563eb;
-  border-bottom-left-radius: 6px;
+  background: var(--c-pallete-1);
+  border-bottom-left-radius: var(--border-radius);
 }
 
 .button:first-child:hover {
-  background: #3b82f6;
+  background: none;
+  color: var(--c-pallete-1);
+  border: 2px solid var(--c-pallete-1);
 }
 
 .button:last-child {
-  background: #ef4444;
-  border-bottom-right-radius: 6px;
+  background: var(--c-pallete-2);
+  border-bottom-right-radius: var(--border-radius);
 }
 
 .button:last-child:hover {
-  background: #f87171;
+  background: none;
+  color: var(--c-pallete-2);
+  border: 2px solid var(--c-pallete-2);
 }
